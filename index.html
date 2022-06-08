@@ -1,667 +1,1029 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Kirt Cathey - Website" />
-	<meta name="keywords" content="blog, cybersecurity, security, cyber, hacking, creative, creative portfolio, cv theme, online resume, personal, portfolio, professional cv, responsive portfolio, resume, resume theme, vcard" />
-	<meta name="author" content="Kirt Cathey" />
-    <title>Kirt Cathey -  Website</title>
-  <!--favicon-img--> 
-   <link rel="icon" type="image/png" href="images/favicon-1.png">
-   <!--favicon-img-->
-   <!--main css file should not be removed -->
-    <link rel="stylesheet" href="css/index.css">
-    <!--main css file-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
-</head>
-<body>
-    <!--contains all the div-->
-    <div id="all">
-    <!--mouse  follower-->
-        <div class="cursor"></div>
-    <!--mouse  follower-->
-    <!--loader-->
-        <div id="loader">
-            <span class="color">Kirt</span>Cathey 
-        </div>
-    <!--loader-end-->
-    <!--link-screen-->
-        <div id="breaker">
-        </div>
-        <div id="breaker-two">
-        </div>
-    <!--link-screen-->
-        <!--Main-Section-->
-        <!--Navigator-fullscreen-->
-        <div id="navigation-content">
-            <div class="logo">
-                <img src="images/kirt_cathey_logo.png" alt="logo">
-            </div>
-            <div class="navigation-close">
-                <span class="close-first"></span>
-                <span class="close-second"></span>
-            </div>
-            <div class="navigation-links">
-                <a href="#" data-text="HOME" id="home-link" >HOME</a>
-                <a href="#" data-text="ABOUT" id="about-link" >ABOUT</a>
-                <a href="https://blog.sysrisk.com" data-text="BLOG" id="blog-link" >BLOG</a>
-                <a href="https://github.com/kirtcathey" data-text="PROJECTS" id="portfolio-link" >PROJECTS</a>
-                <!-- <a href="#" data-text="CONTACT" id="contact-link" >CONTACT</a> -->
-            </div>
-        </div>
-        <!--Navigator-Fullscreen END-->
-          <!--Home Page-->
-        <!--Menubar-->
-        <div id="navigation-bar">
-            <img src="images/kirt_cathey_logo.png" alt="logo">
-            <div class="menubar">
-                <span class="first-span"></span>
-                <span class="second-span"></span>
-                <span class="third-span"></span>
-            </div>
-        </div>
-        <!--Menubar End-->
-          <!--Header-->
-        <div id="header">
-            <div id="particles"></div>
-              <!--Social Media Links-->
-            <div class="social-media-links">
-                <a href="https://github.com/kirtcathey"><img src="images/github-logo.png" class="social-media" alt="github-logo"></a>
-		        <a href="https://gitlab.com/kirtcathey"><img src="images/gitlab-logo.png" class="social-media" alt="gitlab-logo"></a>
-                <a href="https://www.facebook.com/SysRisk/"><img src="images/facebook logo.png" class="social-media" alt="facebook-logo"></a>
-                <a href="https://www.linkedin.com/in/kirtcathey"><img src="images/linkedin logo.png" class="social-media" alt="linkedin-logo"></a>
-                <a href="https://blog.sysrisk.com"><img src="images/wordpress-logo.jpg" class="social-media" alt="wordpress-logo"></a>
-                <a></a>
-            </div>
-            <!--Social Media Links end-->
-            <div class="header-content">
-                <div class="header-content-box">
-                <div class="firstline"><span class="color">Kirt </span>Cathey</div>
-                <div class="secondline">
-                Cyber
-            <span class="txt-rotate color" data-period="1200"data-rotate='[ " Expert", " Architect", " Trainer", " Blogger" ]'></span>
-            <span class="slash">|</span>
-        </div>
-                    <div class="contact">
-                <a href="Mailto:support@sysrisk.com"><img src="images/mail.png" alt="email-pic" class="contactpic"></a><!--Your email Id write in place of "#"-->
-                <a href="Tel:+818032778830"><img src="images/call.png" alt="phone-pic" class="contactpic"></a><!--Your telephone number Id write in place of "#"-->
-                    </div>    
-            </div>
-            </div>
-            <!--header image-->
-            <div class="header-image">
-            <img src="images/hacker-silhouette.png" alt="logo">
-            </div>
-            <!--header image end-->
-        </div>
-           <!--Header End-->
-        <!--HomePage End-->
-        <!--Main-Section End-->
-        <!--about-->
-        <div id="about">
-            <div class="color-changer">
-            <div class="color-panel">
-                <img src="images/gear.png" alt="">
-            </div>
-            <div class="color-selector">
-                <div class="heading">Custom Colors</div>
-                <div class="colors">
-                    <ul >
-                    <li>
-                        <a href="#0" class="color-red " title="color-red"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-purple" title="color-purple"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-malt" title="color-malt"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-green" title="color-green"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-blue" title="color-blue"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-orange" title="color-orange"></a>
-                    </li>
-                    </ul>
-                </div>
-            </div>
-            </div>
-            <!--about content-->
-            <div id="about-content">
-                <div class="about-header">
-                    About <span class="color">Me</span>
-                    <span class ="header-caption">Get to Know <span class="color"> me.</span></span>
-                </div>
-                <div class="about-main">
-            <div class="about-first-paragraph wow">
-            <!--about description-->
-               <span class="about-first-line">
-                    I'm a technical 
-                    <span class="color">SecOps Executive</span>
-                     based in Tokyo, Japan </span>
-                     <br>
-               <span class="about-second-line"> With over 20 years of experience as a cyber professional, risk management professional, and incident handler, I have the skills and knowledge necessary to build, manage, and tune various cyber security operations. I enjoy every step while working.</span>
-               <!-- <div class="cv">
-                <a href="cv.txt"  download="Arlo Brown - CV"><button>Download <span class="colors">CV</span></button></a>
-            </div> -->
-            </div>
-            <!--about picture-->
-            <div class="about-img">
-                <img src="images/fuji2021.jpg" alt="Your Image">
-            </div>
-            </div>
-    
-            </div>
-            <!--services start-->
-            <div id="services">
-                <div class="color-changer">
-                    <div class="color-panel">
-                        <img src="images/gear.png" alt="">
+    <head>
+        <meta charset="utf-8">
+        <title>Sysrisk Testing, vCISO, and Compliance</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Site Description Here">
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/stack-interface.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/socicon.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/iconsmind.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/theme.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,400i,500,600,700%7CMerriweather:300,300i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+    <body class=" " data-smooth-scroll-offset='64'>
+        <a id="start"></a>
+        <div class="nav-container ">
+            <div class="bar bar--sm visible-xs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-3 col-md-2">
+                            <a href="index.html">
+                                <img class="logo logo-dark" alt="logo" src="img/logo-dark.png" />
+                                <img class="logo logo-light" alt="logo" src="img/logo-light.png" />
+                            </a>
+                        </div>
+                        <div class="col-9 col-md-10 text-right">
+                            <a href="#" class="hamburger-toggle" data-toggle-class="#menu1;hidden-xs">
+                                <i class="icon icon--sm stack-interface stack-menu"></i>
+                            </a>
+                        </div>
                     </div>
-                    <div class="color-selector">
-                        <div class="heading">Custom Colors</div>
-                        <div class="colors">
-                            <ul >
-                            <li>
-                                <a href="#0" class="color-red " title="color-red"></a>
-                            </li>
-                            <li>
-                                <a href="#0" class="color-purple" title="color-purple"></a>
-                            </li>
-                            <li>
-                                <a href="#0" class="color-malt" title="color-malt"></a>
-                            </li>
-                            <li>
-                                <a href="#0" class="color-green" title="color-green"></a>
-                            </li>
-                            <li>
-                                <a href="#0" class="color-blue" title="color-blue"></a>
-                            </li>
-                            <li>
-                                <a href="#0" class="color-orange" title="color-orange"></a>
-                            </li>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </div>
+            <!--end bar-->
+            <nav id="menu1" class="bar bar--sm bar-1 hidden-xs " data-scroll-class='366px:pos-fixed'>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-1 col-md-2 hidden-xs">
+                            <div class="bar__module">
+                                <a href="index.html">
+                                    <img class="logo logo-dark" alt="logo" src="img/logo-dark.png" />
+                                    <img class="logo logo-light" alt="logo" src="img/logo-light.png" />
+                                </a>
+                            </div>
+                            <!--end module-->
+                        </div>
+                        <div class="col-lg-11 col-md-12 text-right text-left-xs text-left-sm">
+                            <div class="bar__module">
+                                <ul class="menu-horizontal text-left">
+                                    <li class="dropdown">
+                                        <span class="dropdown__trigger">Home</span>
+                                        <div class="dropdown__container">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-md-12 dropdown__content dropdown__content--lg">
+                                                        <div class="pos-absolute col-lg-5 imagebg hidden-sm hidden-xs" data-overlay="4">
+                                                            <div class="background-image-holder">
+                                                                <img alt="background" src="img/dropdown-1.jpg" />
+                                                            </div>
+                                                            <div class="container pos-vertical-center pl-5">
+                                                                <div class="row">
+                                                                    <div class="col-lg-8">
+                                                                        <img alt="Logo" src="img/logo-light.png" class="image--xxs" />
+                                                                        <span class="h2 color--white">Complete cyber and information security solutions.</span>
+                                                                        <a href="email:support@sysrisk.com" class="btn btn--primary type--uppercase">
+                                                                            <span class="label">contact</span>
+                                                                            <span class="btn__text">
+                                                                                Solid Experience, Effective Support
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <!--end of row-->
+                                                            </div>
+                                                        </div>
+                                                        <div class="row justify-content-end">
+                                                            <div class="col-lg-6">
+                                                                <div class="row">
+                                                                    <div class="col-lg-4">
+                                                                        <h5>Industries</h5>
+                                                                        <ul class="menu-vertical">
+                                                                            <li>
+                                                                                    Finance and Fintech
+                                                                            </li>
+                                                                            <li>
+                                                                                    General Manufacturing
+                                                                            </li>
+                                                                            <li>
+                                                                                    Pharma and Biotech
+                                                                            </li>
+                                                                            <li>
+                                                                                    Crypto
+                                                                            </li>
+                                                                            <li>
+                                                                                    Sofware
+                                                                            </li>
+                                                                            <li>
+                                                                                    Insurance
+                                                                            </li>
+                                                                            <li>
+                                                                                    SaaS
+                                                                            </li>
+                                                                            <li>
+                                                                                    Insurance
+																			</li>
+                                                                            <!-- <li>
+                                                                                <a href="home-knowledge-base.html">
+                                                                                    Knowledge Base
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="home-musician.html">
+                                                                                    Musician
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="home-nonprofit.html">
+                                                                                    Nonprofit
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="home-political.html">
+                                                                                    Political
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="home-restaurant.html">
+                                                                                    Restaurant
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="home-recruitment.html">
+                                                                                    Recruitment
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="home-tourism.html">
+                                                                                    Tourism
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="home-wedding.html">
+                                                                                    Wedding
+                                                                                </a>
+                                                                            </li> -->
+                                                                        </ul>
+                                                                    </div>
+                                                                    <!-- <div class="col-lg-4">
+                                                                        <h5>Landing Pages</h5>
+                                                                        <ul class="menu-vertical">
+                                                                            <li>
+                                                                                <a href="home-landing-1.html">
+                                                                                    Landing 1
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="home-landing-2.html">
+                                                                                    Landing 2
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="home-landing-3.html">
+                                                                                    Landing 3
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="home-landing-4.html">
+                                                                                    Landing 4
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="home-landing-5.html">
+                                                                                    Landing 5
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="home-landing-6.html">
+                                                                                    Landing 6
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="home-landing-7.html">
+                                                                                    Landing 7
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="home-landing-8.html">
+                                                                                    Landing 8
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="home-landing-9.html">
+                                                                                    Landing 9
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="home-landing-10.html">
+                                                                                    Landing 10
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="home-software-1.html">
+                                                                                    Software 1
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="home-software-2.html">
+                                                                                    Software 2
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="home-software-3.html">
+                                                                                    Software 3
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="home-crypto.html">
+                                                                                    Crypto
+                                                                                </a>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="col-lg-4">
+                                                                        <h5>Portfolios</h5>
+                                                                        <ul class="menu-vertical">
+                                                                            <li>
+                                                                                <a href="home-portfolio-agency-1.html">
+                                                                                    Agency
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="home-portfolio-agency-2.html">
+                                                                                    Agency 2
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="home-portfolio-personal-1.html">
+                                                                                    Personal 1
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="home-portfolio-photography.html">
+                                                                                    Photography
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="home-portfolio-photography-2.html">
+                                                                                    Photography 2
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="home-portfolio-studio-1.html">
+                                                                                    Studio 1
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="home-portfolio-studio-2.html">
+                                                                                    Studio 2
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="home-portfolio-video.html">
+                                                                                    Video
+                                                                                </a>
+                                                                            </li>
+                                                                        </ul>
+                                                                        <h5>Coming Soon</h5>
+                                                                        <ul class="menu-vertical">
+                                                                            <li>
+                                                                                <a href="home-coming-soon-1.html">
+                                                                                    Coming Soon 1
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="home-coming-soon-2.html">
+                                                                                    Coming Soon 2
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="home-coming-soon-3.html">
+                                                                                    Coming Soon 3
+                                                                                </a>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div> -->
+                                                                </div>
+                                                                <!--end of row-->
+                                                            </div>
+                                                            <!--end of col-->
+                                                        </div>
+                                                        <!--end of row-->
+                                                    </div>
+                                                    <!--end dropdown content-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--end dropdown container-->
+                                    </li>
+                                    <li class="dropdown">
+                                        <!-- <span class="dropdown__trigger">Pages</span> -->
+                                        <div class="dropdown__container">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="dropdown__content col-lg-2 col-md-4">
+                                                        <ul class="menu-vertical">
+                                                            <li class="dropdown">
+                                                                <!-- <span class="dropdown__trigger">About</span> -->
+                                                                <div class="dropdown__container">
+                                                                    <div class="container">
+                                                                        <div class="row">
+                                                                            <!-- <div class="dropdown__content col-lg-2">
+                                                                                <ul class="menu-vertical">
+                                                                                    <li>
+                                                                                        <a href="page-about-company.html">
+                                                                                            About Company
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="page-about-team.html">
+                                                                                            About Team
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="page-about-me.html">
+                                                                                            About Me
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="page-about-history.html">
+                                                                                            About History
+                                                                                        </a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div> -->
+                                                                            <!--end dropdown content-->
+                                                                        </div>
+                                                                        <!--end row-->
+                                                                    </div>
+                                                                </div>
+                                                                <!--end dropdown container-->
+                                                            </li>
+                                                            <li class="dropdown">
+                                                                <!-- <span class="dropdown__trigger">Careers</span> -->
+                                                                <div class="dropdown__container">
+                                                                    <div class="container">
+                                                                        <div class="row">
+                                                                            <!-- <div class="dropdown__content col-lg-2 col-md-4">
+                                                                                <ul class="menu-vertical">
+                                                                                    <li>
+                                                                                        <a href="page-careers.html">
+                                                                                            Careers Listing
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="page-careers-single.html">
+                                                                                            Career Single
+                                                                                        </a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div> -->
+                                                                            <!-- end dropdown content -->
+                                                                        </div>
+                                                                        <!-- end row -->
+                                                                    </div>
+                                                                </div>
+                                                                <!--end dropdown container-->
+                                                            </li>
+                                                            <!-- <li class="dropdown">
+                                                                <span class="dropdown__trigger">Contact</span> -->
+                                                                <!-- <div class="dropdown__container">
+                                                                    <div class="container">
+                                                                        <div class="row"> -->
+                                                                            <!-- <div class="dropdown__content col-lg-2 col-md-4">
+                                                                                <ul class="menu-vertical">
+                                                                                    <li>
+                                                                                        <a href="page-contact-map-1.html">
+                                                                                            Contact Map 1
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="page-contact-map-2.html">
+                                                                                            Contact Map 2
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="page-contact-map-3.html">
+                                                                                            Contact Map 3
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="page-contact-map-4.html">
+                                                                                            Contact Map 4
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="page-contact-planner-1.html">
+                                                                                            Contact Planner 1
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="page-contact-planner-2.html">
+                                                                                            Contact Planner 2
+                                                                                        </a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div> -->
+                                                                            <!--end dropdown content-->
+                                                                        <!-- </div> -->
+                                                                        <!--end row-->
+                                                                    <!-- </div> -->
+                                                                <!-- </div> -->
+                                                                <!--end dropdown container-->
+                                                            <!-- </li> -->
+                                                            <!-- <li class="dropdown">
+                                                                <span class="dropdown__trigger">Pricing</span>
+                                                                <div class="dropdown__container">
+                                                                    <div class="container">
+                                                                        <div class="row">
+                                                                            <div class="dropdown__content col-lg-2 col-md-4">
+                                                                                <ul class="menu-vertical">
+                                                                                    <li>
+                                                                                        <a href="page-pricing-1.html">
+                                                                                            Pricing Plans 1
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="page-pricing-2.html">
+                                                                                            Pricing Plans 2
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="page-pricing-3.html">
+                                                                                            Pricing Plans 3
+                                                                                        </a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div> -->
+                                                                            <!--end dropdown content-->
+                                                                        <!-- </div> -->
+                                                                        <!--end row-->
+                                                                    <!-- </div>
+                                                                </div> -->
+                                                                <!--end dropdown container-->
+                                                            <!-- </li> -->
+                                                            <li class="dropdown">
+                                                                <span class="dropdown__trigger">Services</span>
+                                                                <div class="dropdown__container">
+                                                                    <div class="container">
+                                                                        <div class="row">
+                                                                            <div class="dropdown__content col-lg-2 col-md-4">
+                                                                                <ul class="menu-vertical">
+                                                                                    <li>
+                                                                                        <a href="page-services-1.html">
+                                                                                            Services 1
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="page-services-2.html">
+                                                                                            Services 2
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="page-services-3.html">
+                                                                                            Services 3
+                                                                                        </a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                            <!--end dropdown content-->
+                                                                        </div>
+                                                                        <!--end row-->
+                                                                    </div>
+                                                                </div>
+                                                                <!--end dropdown container-->
+                                                            </li>
+                                                            <li class="dropdown separate">
+                                                                <span class="dropdown__trigger">Accounts</span>
+                                                                <div class="dropdown__container">
+                                                                    <div class="container">
+                                                                        <div class="row">
+                                                                            <div class="dropdown__content col-lg-2 col-md-4">
+                                                                                <ul class="menu-vertical">
+                                                                                    <li>
+                                                                                        <a href="page-accounts-profile.html">
+                                                                                            Public Profile
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="page-accounts-settings.html">
+                                                                                            Account Settings
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="page-accounts-login-1.html">
+                                                                                            Login Simple
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="page-accounts-login-2.html">
+                                                                                            Login Social
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="page-accounts-create-1.html">
+                                                                                            Create Simple
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="page-accounts-create-2.html">
+                                                                                            Create Social
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="page-accounts-recover.html">
+                                                                                            Recover Account
+                                                                                        </a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                            <!--end dropdown content-->
+                                                                        </div>
+                                                                        <!--end row-->
+                                                                    </div>
+                                                                </div>
+                                                                <!--end dropdown container-->
+                                                            </li>
+                                                            <li class="dropdown">
+                                                                <span class="dropdown__trigger">Utilities</span>
+                                                                <div class="dropdown__container">
+                                                                    <div class="container">
+                                                                        <div class="row">
+                                                                            <div class="dropdown__content col-lg-2 col-md-4">
+                                                                                <ul class="menu-vertical">
+                                                                                    <li>
+                                                                                        <a href="page-utility-conversation.html">
+                                                                                            Conversation
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="404.html">
+                                                                                            Error 404
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="500.html">
+                                                                                            Error 500
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="page-utility-maintnence.html">
+                                                                                            Maintnence Mode
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="page-utility-onboarding.html">
+                                                                                            Onboarding
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="page-utility-search-results-list.html">
+                                                                                            Search Results List
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="page-utility-search-results.html">
+                                                                                            Search Results Boxes
+                                                                                        </a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                            <!--end dropdown content-->
+                                                                        </div>
+                                                                        <!--end row-->
+                                                                    </div>
+                                                                </div>
+                                                                <!--end dropdown container-->
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <!--end dropdown content-->
+                                                </div>
+                                                <!--end row-->
+                                            </div>
+                                        </div>
+                                        <!--end dropdown container-->
+                                    </li>
+                                    <li class="dropdown">
+                                        <span class="dropdown__trigger"><a href="https://blog.sysrisk.com">Blog</a></span>
+                                        <!-- <div class="dropdown__container">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="dropdown__content col-lg-2 col-md-4">
+                                                        <ul class="menu-vertical">
+                                                            <li class="dropdown">
+                                                                <span class="dropdown__trigger"><a href="https://blog.sysrisk.com">Articles</a></span> -->
+                                                                <!-- <div class="dropdown__container"> -->
+                                                                    <!-- <div class="container"> -->
+                                                                        <!-- <div class="row"> -->
+                                                                            <!-- <div class="dropdown__content col-lg-2 col-md-4">
+                                                                                <ul class="menu-vertical">
+                                                                                    <li>
+                                                                                        <a href="blog-articles-list.html">
+                                                                                            Simple List
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="blog-articles-list-minimal.html">
+                                                                                            Minimal List
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="blog-articles-magazine.html">
+                                                                                            Magazine
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="blog-articles-cards.html">
+                                                                                            Cards
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="blog-articles-cards-sidebar.html">
+                                                                                            Cards Sidebar
+                                                                                        </a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div> -->
+                                                                            <!--end dropdown content-->
+                                                                        <!-- </div> -->
+                                                                        <!--end row-->
+                                                                    <!-- </div> -->
+                                                                <!-- </div> -->
+                                                                <!--end dropdown container-->
+                                                            <!-- </li> -->
+                                                            <!-- <li class="dropdown">
+                                                                <span class="dropdown__trigger">Post Single</span>
+                                                                <div class="dropdown__container">
+                                                                    <div class="container">
+                                                                        <div class="row">
+                                                                            <div class="dropdown__content col-lg-2 col-md-4">
+                                                                                <ul class="menu-vertical">
+                                                                                    <li>
+                                                                                        <a href="blog-post-single.html">
+                                                                                            Standard Post
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="blog-post-audio-single.html">
+                                                                                            Audio Post
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="blog-post-image-single.html">
+                                                                                            Image Post
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="blog-post-video-single.html">
+                                                                                            Video Post
+                                                                                        </a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div> -->
+                                                                            <!--end dropdown content-->
+                                                                        <!-- </div> -->
+                                                                        <!--end row-->
+                                                                    <!-- </div>
+                                                                </div> -->
+                                                                <!--end dropdown container-->
+                                                            <!-- </li> -->
+                                                        <!-- </ul>
+                                                    </div> -->
+                                                    <!--end dropdown content-->
+                                                <!-- </div> -->
+                                                <!--end row-->
+                                            <!-- </div>
+                                        </div> -->
+                                        <!--end dropdown container-->
+                                    </li>
+                                    <li class="dropdown">
+                                        <span class="dropdown__trigger">Services</span>
+                                        <div class="dropdown__container">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="dropdown__content col-lg-2 col-md-4">
+                                                        <ul class="menu-vertical">
+                                                            <li class="dropdown">
+                                                                <span class="dropdown__trigger"><a href="Testing.html">Testing</a></span>
+                                                                <!-- <div class="dropdown__container">
+                                                                    <div class="container"> -->
+                                                                        <!-- <div class="row"> -->
+                                                                            <!-- <div class="dropdown__content col-lg-2 col-md-4">
+                                                                                <ul class="menu-vertical">
+                                                                                    <li>
+                                                                                        <a href="shop-2col.html">
+                                                                                            2 Columns
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="shop-3col.html">
+                                                                                            3 Columns
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="shop-4col.html">
+                                                                                            4 Columns
+                                                                                        </a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div> -->
+                                                                            <!--end dropdown content-->
+                                                                        <!-- </div> -->
+                                                                        <!--end row-->
+                                                                    <!-- </div>
+                                                                </div> -->
+                                                                <!--end dropdown container-->
+                                                            </li>
+                                                            <li class="dropdown">
+                                                                <span class="dropdown__trigger"><a href="Compliance.html">Compliance</a></span>
+                                                                <div class="dropdown__container">
+                                                                    <div class="container">
+                                                                        <!-- <div class="row"> -->
+                                                                            <!-- <div class="dropdown__content col-lg-2 col-md-4">
+                                                                                <ul class="menu-vertical">
+                                                                                    <li>
+                                                                                        <a href="shop-2col-tiles.html">
+                                                                                            2 Columns
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="shop-3col-tiles.html">
+                                                                                            3 Columns
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="shop-4col-tiles.html">
+                                                                                            4 Columns
+                                                                                        </a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div> -->
+                                                                            <!--end dropdown content-->
+                                                                        <!-- </div> -->
+                                                                        <!--end row-->
+                                                                    </div>
+                                                                </div>
+                                                                <!--end dropdown container-->
+                                                            </li>
+                                                            <li class="dropdown">
+                                                                <span class="dropdown__trigger"><a href = "vCISO-services.html">vCISO</a></span>
+                                                                <!-- <div class="dropdown__container">
+                                                                    <div class="container">
+                                                                        <div class="row">
+                                                                            <div class="dropdown__content col-lg-2 col-md-4">
+                                                                                <ul class="menu-vertical">
+                                                                                    <li>
+                                                                                        <a href="shop-product-1.html">
+                                                                                            Product Simple
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="shop-product-2.html">
+                                                                                            Product Detailed
+                                                                                        </a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div> -->
+                                                                            <!--end dropdown content-->
+                                                                        <!-- </div> -->
+                                                                        <!--end row-->
+                                                                    <!-- </div>
+                                                                </div> -->
+                                                                <!--end dropdown container-->
+                                                            <!-- </li> -->
+                                                            <!-- <li class="separate">
+                                                                <a href="shop-cart.html">
+                                                                    Cart Overview
+                                                                </a>
+                                                            </li>
+                                                            <li class="">
+                                                                <a href="shop-checkout.html">
+                                                                    Checkout
+                                                                </a>
+                                                            </li>
+                                                            <li class="">
+                                                                <a href="shop-terms.html">
+                                                                    Terms
+                                                                </a>
+                                                            </li> -->
+                                                        <!-- </ul>
+                                                    </div> -->
+                                                    <!--end dropdown content-->
+                                                </div>
+                                                <!--end row-->
+                                            </div>
+                                        </div>
+                                        <!--end dropdown container-->
+                                    </li>
+                                    
+                                    
+                                </ul>
+                            </div>
+                            <!--end module-->
+                            <div class="bar__module">
+                                <!-- <a class="btn btn--sm type--uppercase" href="#">
+                                    <span class="btn__text">
+                                        Try Builder
+                                    </span>
+                                </a> -->
+                                <a class="btn btn--sm btn--primary type--uppercase" href="email:support@sysrisk.com">
+                                    <span class="btn__text">
+                                        Contact Us!
+                                    </span>
+                                </a>
+                            </div>
+                            <!--end module-->
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </nav>
+            <!--end bar-->
+        </div>
+        <div class="main-container">
+            <section class="text-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h6 class="type--uppercase">sysrisk cybersecurity solutions</h6>
+                            <div class="typed-headline">
+                                <span class="h1 inline-block">The team for</span>
+                                <span class="h1 inline-block typed-text typed-text--cursor color--primary" data-typed-strings="bootstrapped startups.,specific industry needs.,regulated companies.,small and large businesses.,compliance certification.,the security conscious.">the security conscious.</span>
+                            </div>
+                            <p class="lead">
+                                A robust security offering with immediate impact.
+                            </p>
+                            <!--<a class="btn btn--primary type--uppercase inner-link" href="#demos">
+                                <span class="btn__text">
+                                    Explore Demos
+                                </span>
+                            </a> -->
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+            <a id="demos"></a>
+            <section class="text-center cta cta-4 space--xxs border--bottom imagebg" data-gradient-bg='#4876BD,#5448BD,#8F48BD,#BD48B1'>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="label label--inline">Hot!</span>
+                            <span>We will soon announce an agreement a great NIST, ISMS, SOC2 and other compliance application solution.
+                                <a href="https://blog.sysrisk.com">Stay tuned</a>!</span>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+            
+            <section class="text-center bg--secondary">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-10 col-lg-8">
+                            <h2>Why you'll love Sysrisk</h2>
+                            <p class="lead">
+                                Whether you’re building a startup, facing a compliance deadline, or need some effective system security testing, we provide all of this in one stop!
+                            </p>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+            
+            
+            <section class="space--xs imagebg" data-gradient-bg="#4876BD,#5448BD,#8F48BD,#BD48B1">
+                <div class="container">
+                    <div class="row cta cta--horizontal text-center-xs">
+                        <div class="col-md-4">
+                            <h4> We can help now.</h4>
+                        </div>
+                        <div class="col-md-5">
+                            <p class="lead">
+                                Cybersecurity issues don't fix themselves.
+                            </p>
+                        </div>
+                        <div class="col-md-3 text-right text-center-xs">
+                            <a class="btn btn--primary type--uppercase" href="#purhcase-template">
+                                <span class="btn__text">
+                                    Contact Us!
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+            <div class="modal-container">
+                <div class="modal-content">
+                    <section class="imageblock feature-large bg--white border--round ">
+                        <div class="imageblock__content col-lg-5 col-md-3 pos-left">
+                            <div class="background-image-holder">
+                                <img alt="image" src="img/cowork-8.jpg" />
+                            </div>
+                        </div>
+                        <div class="container">
+                            <!-- <div class="row justify-content-end">
+                                <div class="col-lg-6 col-md-7">
+                                    <div class="row">
+                                        <div class="col-md-11 col-lg-10">
+                                            <h1>Ideal for design conscious startups.</h1>
+                                            <p class="lead">
+                                                Start building a beautiful site for your startup &mdash; right in the comfort of your browser.
+                                            </p>
+                                            <hr class="short"> -->
+                                            <!-- <form>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <input type="email" name="Email Address" placeholder="Email Address" />
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <input type="password" name="Password" placeholder="Password" />
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <button type="submit" class="btn btn--primary type--uppercase">Create Account</button>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <span class="type--fine-print">By signing up, you agree to the
+                                                            <a href="#">Terms of Service</a>
+                                                        </span>
+                                                    </div>
+                                                </div> -->
+                                                <!--end row-->
+                                            <!-- </form> -->
+                                        <!-- </div> -->
+                                        <!--end of col-->
+                                    <!-- </div> -->
+                                    <!--end of row-->
+                                <!-- </div>
+                            </div> -->
+                            <!--end of row-->
+                        </div>
+                        <!--end of container-->
+                    </section>
+                </div>
+            </div>
+            <footer class="footer-3 text-center-xs space--xs bg--dark ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img alt="Image" class="logo" src="img/logo-dark.png" />
+                            <ul class="list-inline list--hover">
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <span class="type--fine-print">Get Started</span>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <span class="type--fine-print">support@sysrisk.com</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6 text-right text-center-xs">
+                            <ul class="social-list list-inline list--hover">
+                                <!-- <li class="list-inline-item">
+                                    <a href="#">
+                                        <i class="socicon socicon-google icon icon--xs"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <i class="socicon socicon-twitter icon icon--xs"></i>
+                                    </a>
+                                </li> -->
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <i class="socicon socicon-facebook icon icon--xs"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <i class="socicon socicon-linkedin icon icon--xs"></i>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
-                    </div>
-            <!--services header-->
-                    <div class="services-heading wow">
-                        <span class="color">My</span> Services
-                    </div>
-            <!--services header end-->
-            <!--services content-->
-                    <div class="services-content">
-                           <div class="service-one service wow">
-                               <div class="service-img">
-                               <img src="images/coding.png" alt="service-one">
-                               </div>
-                               <div class="service-description">
-                                <h2>SOC Creation</h2>
-                                <p>We have the experience and know-how to design, plan, and implement an effective security operations center.</p>
-                               </div>
-                           </div>
-                           <div class="service-two service wow">
-                               <div class="service-img">
-                               <img src="images/instagram.png" alt="service-two">
-                               </div>
-                               <div class="service-description">
-                                <h2>Project Management</h2>
-                                <p>Bring cyber expertise to projects that require solid security knowledge in fintech, crypto-trading, and other industries.</p>
-                               </div>
-                           </div>
-                           <div class="service-three service wow">
-                            <div class="service-img">
-                               <img src="images/bulb.png" alt="service-three">
-                            </div>
-                            <div class="service-description">
-                                <h2>Training</h2>
-                                <p>Train threat hunters, exploit developers, red teamers, and other cybersecurity experts across multiple industries.</p>
-                            </div>
+                    <!--end of row-->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="type--fine-print">
+                                Supercharge your infosec program
+                            </p>
+                        </div>
+                        <div class="col-md-6 text-right text-center-xs">
+                            <span class="type--fine-print">&copy;
+                                <span class="update-year"></span> Brew, LLC</span>
+<!--                             <a class="type--fine-print" href="#">Privacy Policy</a>
+                            <a class="type--fine-print" href="#">Legal</a> -->
                         </div>
                     </div>
-            </div>
-            <!--services content end-->
-            <!--services end-->
-            <div id="skills">
-                <div class="skills-header">
-                     My <span class="color"> Skills</span>
+                    <!--end of row-->
                 </div>
-                <div class="skills-content " style="text-align: center;">
-                    <div class="skill-html skill">
-                        <div class="skill-text">
-                    <div class="html">
-                        Penetration Testing
-                    </div>
-                        </div>
-                    <div class="html-prog wow prog">
-                 <div class="html-progress wow">95%</div>
-                    </div>
-                    </div>
-                    <div class="skill-html skill">
-                        <div class="skill-text">
-                    <div class="html">
-                      Threat Hunting
-                    </div>
-                        </div>
-                    <div class="html-prog wow prog">
-                 <div class="js-progress wow">90%</div>
-                    </div>
-                    </div>
-                    <div class="skill-html skill">
-                        <div class="skill-text">
-                    <div class="html">
-                        Exploit Analysis
-                    </div>
-                        </div>
-                    <div class="html-prog wow prog">
-                 <div class="adobe-progress wow">83%</div>
-                    </div>
-                    </div>
-                    <div class="skill-html skill">
-                        <div class="skill-text">
-                    <div class="html">
-                        Application Testing
-                    </div>
-                        </div>
-                    <div class="html-prog wow prog">
-                 <div class="php-progress wow">87%</div>
-                    </div>
-                    </div>
-                    <div class="skill-html skill">
-                        <div class="skill-text">
-                    <div class="html">
-                        Red Teaming
-                    </div>
-                        </div>
-                    <div class="html-prog wow prog">
-                 <div class="jquery-progress wow">94%</div>
-                    </div>
-                    </div>
-                    <div class="skill-html skill">
-                        <div class="skill-text">
-                    <div class="html">
-                        Incident Handling
-                    </div>
-                        </div>
-                    <div class="html-prog wow prog">
-                 <div class="seo-progress wow">84%</div>
-                    </div>
-                    </div>
-                </div>
-            </div>
-    <!--copyright-section You Can Remove After Downloading-->
-            <div class="footer">
-             <div class="footer-text">
-                 <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> Kirt Cathey
-             </div>
-            </div>
-    <!--copyright-section-->
+                <!--end of container-->
+            </footer>
         </div>
-        <!--about end-->
-        <!--portfolio-->
-        <div id="portfolio">
-            <div class="color-changer">
-                <div class="color-panel">
-                    <img src="images/gear.png" alt="">
-                </div>
-                <div class="color-selector">
-                    <div class="heading">Custom Colors</div>
-                    <div class="colors">
-                        <ul >
-                        <li>
-                            <a href="#0" class="color-red " title="color-red"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-purple" title="color-purple"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-malt" title="color-malt"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-green" title="color-green"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-blue" title="color-blue"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-orange" title="color-orange"></a>
-                        </li>
-                        </ul>
-                    </div>
-                </div>
-                </div>
-            <div class="portfolio-header"> <span class="color"> My </span> Projects
-            <span class ="header-caption"> Some Of My <span class="color"> Works</span></span></div>
-             <div id="portfolio-content">
-                 <div class="portfolio portfolio-first">
-                     <div class="portfolio-image">
-                        <img src="images/portfolio-first.jpg" alt="portfolio-first">
-                     </div>
-                     <div class="portfolio-text">
-                         <h2>App Idea</h2>
-                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad ut optio repellat cupiditate 
-                             expedita eius dignissimos. Id cumque placeat minima ad laudantium suscipit voluptatem ducimus</p>
-                         <div class="button"><a href="#"><button><span class="index"> View Project<i class="gg-arrow-right"></i></span></button></a></div>
-                     </div>
-                 </div>
-                 <div class="portfolio portfolio-second">
-                    <div class="portfolio-image">
-                        <img src="images/portfolio-second.jpg" alt="portfolio-second">
-                    </div>
-                    <div class="portfolio-text">
-                        <h2>Web Designing</h2>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id cumque placeat minima ad laudantium suscipit
-                             voluptatem ducimus. Id cumque placeat minima ad laudantium suscipit voluptatem ducimus</p>
-                        <div class="button"><a href="#"><button><span class="index"> View Project<i class="gg-arrow-right"></i></span></button></a></div>
-                    </div>
-                </div>
-             
-                <div class="portfolio portfolio-third">
-                    <div class="portfolio-image">
-                        <img src="images/portfolio-third.jpg" alt="portfolio-third">
-                    </div>
-                    <div class="portfolio-text">
-                        <h2>UI Designing</h2>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad ut optio repellat cupiditate expedita eius dignissimos
-                            .. Id cumque placeat minima ad laudantium suscipit voluptatem ducimus</p>
-                        <div class="button"><a href="#"><button><span class="index"> View Project<i class="gg-arrow-right"></i></span></button></a></div>
-                    </div>
-                </div>
-                <div class="portfolio portfolio-fourth">
-                    <div class=" portfolio-image">
-                        <img src="images/portfolio-fourth.jpg" alt="portfolio-fourth">
-                    </div>
-                    <div class="portfolio-text">
-                        <h2>Wow Graphics</h2>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad ut optio repellat cupiditate
-                             expedita eius dignissimos. Id cumque placeat minima ad laudantium suscipit voluptatem ducimus</p>
-                        <div class="button"><a href="#"><button><span class="index"> View Project<i class="gg-arrow-right"></i></span></button></a></div>
-                    </div>
-                </div>
-                 </div>
-                    <!--copyright-section You Can Remove After Downloading-->
-            <div class="footer">
-                <div class="footer-text">
-                    <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> Kirt Cathey
-                </div>
-               </div>
-       <!--copyright-section-->
-             </div>
-        <!--portfolio end-->
-        <!--blog-->
-        <div id="blog">
-            <div class="color-changer">
-                <div class="color-panel">
-                    <img src="images/gear.png" alt="">
-                </div>
-                <div class="color-selector">
-                    <div class="heading">Custom Colors</div>
-                    <div class="colors">
-                        <ul >
-                        <li>
-                            <a href="#0" class="color-red " title="color-red"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-purple" title="color-purple"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-malt" title="color-malt"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-green" title="color-green"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-blue" title="color-blue"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-orange" title="color-orange"></a>
-                        </li>
-                        </ul>
-                    </div>
-                </div>
-                </div>
-        <div class="blog-header"> Blogs</span>
-            <span class ="header-caption"> My Latest <span class="color"> blog posts.</span></span></div>
-            <div class="blog-content">
-                 <div class="blogs">
-                     <a href="#">
-                     <div class="img">
-                        <img src="images/post-one.jpg" alt="blog-one">
-                        <div class="blog-date">8 May,20</div>
-                     </div>
-                     <div class="blog-text">
-                         <h3>Harleys In Hawaai</h3>
-                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus alias dolore recusandae illum, corrupti quo 
-                             veniam saepe aliquid! Quis voluptates ratione consequuntur vel, perferendis cum provident? Magnam fugiat voluptas
-                              libero.</p>
-                     </div></a>
-                 </div>      
-                 <div class="blogs">
-                    <a href="#">
-                    <div class="img">
-                        <img src="images/post-two.jpg" alt="blog-two">
-                        <div class="blog-date">16 Jan,20</div>
-                    </div>
-                    <div class="blog-text">
-                        <h3>Key To Be Productive</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt maiores, 
-                            recusandae cupiditate ducimus a non tempora, architecto obcaecati eaque ipsum assumenda harum dolorum iusto tenetur
-                             eius eligendi dolor magnam sit!</p>
-                    </div></a>
-                </div>      
-                <div class="blogs">
-                    <a href="#">
-                    <div class="img">
-                        <img src="images/post-three.jpg" alt="blog-three">
-                        <div class="blog-date">30 Nov,19</div>
-                    </div>
-                    <div class="blog-text">
-                        <h3>Caffeine Addict</h3>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo nostrum impedit 
-                            ipsam perspiciatis ratione sapiente quasi optio reprehenderit, labore consequuntur suscipit cum quas.
-                             Officiis dolorem asperiores, ut necessitatibus quas doloremque?</p>
-                    </div></a>
-                </div>
-                <div class="blogs">
-                    <a href="#">
-                    <div class="img">
-                        <img src="images/post-four.jpg" alt="blog-four">
-                        <div class="blog-date">6 Jul,19</div>
-                    </div>
-                    <div class="blog-text">
-                        <h3>Web Development</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, veniam ratione quam vitae,
-                             quibusdam explicabo rem debitis velit ipsa repellat, impedit nulla fuga? Amet corporis praesentium quae.
-                              Sed, quibusdam necessitatibus.</p>
-                    </div></a>
-                </div>  
-                <div class="blogs">
-                    <a href="#">
-                    <div class="img">
-                        <img src="images/post-five.jpg" alt="blog-five">
-                        <div class="blog-date">1 Jun,19</div>
-                    </div>
-                    <div class="blog-text">
-                        <h3>Work From Home</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga sunt eum necessitatibus rem 
-                            dignissimos nulla mollitia cumque, provident officiis non vitae? Animi aut doloremque illum, soluta hic minus 
-                            sint explicabo..</p>
-                    </div></a>
-                </div>  
-                <div class="blogs">
-                    <a href="#">
-                    <div class="img">
-                        <img src="images/post-six.jpg" alt="blog-six">
-                        <div class="blog-date">28 Feb,19</div>
-                    </div>
-                    <div class="blog-text">
-                        <h3>Business Trip</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo tempora dolorum fuga ratione, unde, 
-                            ex quaerat iste numquam nemo nihil nobis rem sint quia recusandae dignissimos quos ut rerum nam.</p>
-                    </div></a>
-                </div>        
-            </div>
-               <!--copyright-section You Can Remove After Downloading-->
-               <div class="footer">
-                <div class="footer-text">
-                    <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> Kirt Cathey
-                </div>
-               </div>
-       <!--copyright-section-->
-        </div>
-        <!--blog end-->
-        <!--contact-->
-     <div id="contact">
-        <div class="color-changer">
-            <div class="color-panel">
-                <img src="images/gear.png" alt="">
-            </div>
-            <div class="color-selector">
-                <div class="heading">Custom Colors</div>
-                <div class="colors">
-                    <ul >
-                    <li>
-                        <a href="#0" class="color-red " title="color-red"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-purple" title="color-purple"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-malt" title="color-malt"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-green" title="color-green"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-blue" title="color-blue"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-orange" title="color-orange"></a>
-                    </li>
-                    </ul>
-                </div>
-            </div>
-            </div>
-         <div class="contact-header">Contact <span class="color"> Me</span>
-        <div class="contact-header-caption"> <span class="color"> Get</span> In Touch.</div></div>
-        <div class="contact-content">
-            <!--Contact form-->
-             <div class="contact-form">
-                 <div class="form-header">
-                     Message Me
-                 </div>
-                 <form id="myForm" action="sendEmail.php">
-                    <div class="input-line">
-                        <input  id="name" type="text" placeholder="Name" class="input-name">
-                        <input id="email" type="email" placeholder="Email"  class="input-name">
-                    </div>
-                    <input type="text" id="subject" placeholder="subject" class="input-subject">
-                    <textarea id ="body" class="input-textarea" placeholder="message"></textarea>
-                    <button type="button" id ="submit" onclick="sendEmail()" value="send">Submit</button>
-                 </form>
-               
-             </div>
-            <!--Contact form-->
-            <!--Contact information-->
-             <div class="contact-info">
-                <div class="contact-info-header">
-                    Contact Info
-                </div>
-                <div class="contact-info-content">
-                <div class="contect-info-content-line">
-                    <img src="./images/icon-name.png" class="icon" alt="name-icon">
-                    <div class="contact-info-icon-text">
-                        <h6>Name</h6>
-                        <p>Kirt Cathey</p>
-                  </div>
-                </div>
-                <div class="contect-info-content-line">
-                  <img src="./images/icon-location.png" class="icon" alt="location-icon">
-                  <div class="contact-info-icon-text">
-                      <h6>Location</h6>
-                      <p>Tokyo, Japan</p>
-                </div>
-              </div>
-              <div class="contect-info-content-line">
-                  <img src="./images/icon-phone.png" class="icon" alt="phone-icon">
-                  <div class="contact-info-icon-text">
-                      <h6>Call</h6>
-                      <p>+818032778830</p>
-                </div>
-              </div>
-              
-              <div class="contect-info-content-line">
-                  <img src="./images/icon-email.png" class="icon" alt="email-icon">
-                  <div class="contact-info-icon-text">
-                      <h6>Email</h6>
-                      <p>support@sysrisk.com</p>
-                </div>
-              </div>
-                </div>
-            <!--Contact information end-->
-           </div>
-        </div>
-                    <!--copyright-section You Can Remove After Downloading-->
-                    <div class="footer">
-                        <div class="footer-text">
-                            <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> Kirt Cathey
-                        </div>
-                       </div>
-               <!--copyright-section-->
-     </div>
-        <!--contact end-->
-    </div>
-    <!--all the divisions-->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/particles.js"></script>
-    <script src="js/particles.min.js"></script>
-    <script src="js/index.js"></script>
-    <!--particles script-->
-    <script>
-  particlesJS("particles", {"particles":{"number":{"value":40,"density":{"enable":true,"value_area":800}},"color":{"value":"#ffffff"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":0.5,"random":false,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":3,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":true,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":6,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});
-    </script>
-    	<script type="text/javascript">
-            function sendEmail() {
-                var name = $("#name");
-                var email = $("#email");
-                var subject = $("#subject");
-                var body = $("#body");
-                $('#submit').text("Sending");
-    
-                if (isNotEmpty(name) && isNotEmpty(email) && isNotEmpty(subject) && isNotEmpty(body)) {
-                    $.ajax({
-                       url: 'sendEmail.php',
-                       method: 'POST',
-                       dataType: 'json',
-                       data: {
-                           name: name.val(),
-                           email: email.val(),
-                           subject: subject.val(),
-                           body: body.val()
-                           
-                       }, success: function (response) {
-                            $('#myForm')[0].reset();
-                            $('#submit').text("Thank you!!!");
-                       }
-                       
-                    });
-                }
-            }
-    
-            function isNotEmpty(caller) {
-                if (caller.val() == "") {
-                    caller.css('border', '1px solid red');
-                    $('#submit').text("Submit");
-                    return false;
-                } else
-                    caller.css('border', '');
-                return true;
-            }
-        </script>
-</body>
+        <!--<div class="loader"></div>-->
+        <a class="back-to-top inner-link" href="#start" data-scroll-class="100vh:active">
+            <i class="stack-interface stack-up-open-big"></i>
+        </a>
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/typed.min.js"></script>
+        <script src="js/isotope.min.js"></script>
+        <script src="js/granim.min.js"></script>
+        <script src="js/smooth-scroll.min.js"></script>
+        <script src="js/scripts.js"></script>
+    </body>
 </html>

@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>papashell | Offensive Security</title>
+  <meta name="description" content="Penetration tester and red team consultant helping organizations find and fix security weaknesses before attackers do.">
+  <style>
+    :root {
+      --bg: #050709;
+      --bg-alt: #090c10;
+      --card: #0c1117;
+      --border: #17212b;
+      --text: #d6dee8;
+      --muted: #8494a7;
+      --accent: #2ee6a6;
+      --accent-2: #4da3ff;
+      --danger: #ff5c7a;
+      --mono: ui-monospace, "JetBrains Mono", "Fira Code", Consolas, monospace;
+      --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+    a { color: var(--accent-2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ::selection { background: var(--accent); color: var(--bg); }
+
+    #grid-bg { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
+
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(5, 7, 9, 0.88);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+    .brand { font-family: var(--mono); font-weight: 700; color: var(--text); }
+    .brand span { color: var(--accent); }
+    .nav ul { display: flex; gap: 22px; list-style: none; }
+    .nav ul a { color: var(--muted); font-size: 0.92rem; }
+    .nav ul a:hover, .nav ul a.active { color: var(--accent); text-decoration: none; }
+    .nav ul a.lang { border: 1px solid var(--border); border-radius: 6px; padding: 2px 10px; font-family: var(--mono); }
+    .nav ul a.lang:hover { border-color: var(--accent); }
+    .menu-btn {
+      display: none; background: none; border: 1px solid var(--border); color: var(--text);
+      padding: 6px 10px; border-radius: 6px; cursor: pointer; font-family: var(--mono);
+    }
+    @media (max-width: 760px) {
+      .menu-btn { display: block; }
+      .nav ul {
+        display: none; position: absolute; top: 64px; left: 0; right: 0; flex-direction: column;
+        background: var(--bg-alt); border-bottom: 1px solid var(--border); padding: 16px 20px; gap: 14px;
+      }
+      .nav ul.open { display: flex; }
+    }
+
+    section { padding: 96px 0 40px; }
+    .eyebrow { font-family: var(--mono); color: var(--accent); font-size: 0.85rem; letter-spacing: 0.08em; }
+    h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1.15; margin: 14px 0 18px; }
+    h2 { font-size: 1.8rem; margin: 8px 0 28px; }
+    h3 { font-size: 1.1rem; margin-bottom: 8px; }
+    .muted { color: var(--muted); }
+
+    .hero { min-height: calc(100vh - 64px); display: flex; align-items: center; padding-top: 40px; }
+    .hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: center; }
+    @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } }
+    .role { font-family: var(--mono); color: var(--accent); }
+    .role::after { content: "▍"; animation: blink 1s steps(1) infinite; margin-left: 2px; }
+    @keyframes blink { 50% { opacity: 0; } }
+    .lead { color: var(--muted); font-size: 1.1rem; max-width: 560px; }
+    .actions { display: flex; gap: 14px; margin-top: 30px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; padding: 12px 22px; border-radius: 8px; font-weight: 600;
+      border: 1px solid var(--accent); color: var(--accent); background: transparent; cursor: pointer;
+      font-size: 0.95rem; transition: background 0.2s, color 0.2s;
+    }
+    .btn:hover { background: var(--accent); color: var(--bg); text-decoration: none; }
+    .btn.solid { background: var(--accent); color: var(--bg); }
+    .btn.solid:hover { filter: brightness(1.1); }
+
+    .console {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      font-family: var(--mono); font-size: 0.85rem; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(46, 230, 166, 0.05);
+    }
+    .console-bar { display: flex; gap: 7px; padding: 12px 14px; border-bottom: 1px solid var(--border); }
+    .console-bar i { width: 11px; height: 11px; border-radius: 50%; background: var(--border); }
+    .console-bar i:nth-child(1) { background: #ff5f57; }
+    .console-bar i:nth-child(2) { background: #febc2e; }
+    .console-bar i:nth-child(3) { background: #28c840; }
+    .console-body { padding: 18px; min-height: 230px; white-space: pre-wrap; }
+    .console-body .p { color: var(--accent); }
+    .console-body .k { color: var(--accent-2); }
+
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 56px; }
+    @media (max-width: 700px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+    .stat { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
+    .stat b { display: block; font-size: 1.8rem; font-family: var(--mono); color: var(--accent); }
+    .stat span { color: var(--muted); font-size: 0.88rem; }
+
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+    .card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .card .ico {
+      width: 42px; height: 42px; border-radius: 10px; display: grid; place-items: center; margin-bottom: 14px;
+      background: rgba(46, 230, 166, 0.1); color: var(--accent); font-family: var(--mono); font-weight: 700;
+    }
+    .card p { color: var(--muted); font-size: 0.95rem; }
+
+    .about-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 36px; }
+    @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; } }
+    .about-grid p + p { margin-top: 14px; }
+    .skills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    .skills li {
+      list-style: none; font-family: var(--mono); font-size: 0.8rem; padding: 5px 11px; border-radius: 999px;
+      border: 1px solid var(--border); background: var(--bg-alt); color: var(--text);
+    }
+
+    .steps { counter-reset: step; display: grid; gap: 16px; }
+    .step {
+      counter-increment: step; display: grid; grid-template-columns: 56px 1fr; gap: 18px;
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px;
+    }
+    .step::before {
+      content: "0" counter(step); font-family: var(--mono); font-size: 1.4rem; color: var(--accent); font-weight: 700;
+    }
+    .step p { color: var(--muted); font-size: 0.95rem; }
+
+    .certs { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; }
+    .cert {
+      background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px; text-align: center;
+    }
+    .cert b { font-family: var(--mono); color: var(--accent); font-size: 1.15rem; display: block; }
+    .cert span { color: var(--muted); font-size: 0.82rem; }
+
+    .contact-grid { max-width: 640px; }
+    .contact-list { list-style: none; margin-top: 18px; display: grid; gap: 10px; font-family: var(--mono); font-size: 0.9rem; }
+    .contact-list span { color: var(--muted); display: inline-block; min-width: 90px; }
+
+    footer { border-top: 1px solid var(--border); margin-top: 60px; padding: 28px 0; color: var(--muted); font-size: 0.85rem; }
+    footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s, transform 0.6s; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="grid-bg" aria-hidden="true"></canvas>
+
+  <header>
+    <div class="wrap nav">
+      <a href="#top" class="brand">&lt;papa<span>shell</span>/&gt;</a>
+      <button class="menu-btn" id="menu-btn" aria-label="Toggle menu">menu</button>
+      <ul id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#certs">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="index.html" class="lang" lang="ja" hreflang="ja">日本語</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">// OFFENSIVE SECURITY CONSULTANT</div>
+            <h1>Find the gaps<br>before someone else does.</h1>
+            <p class="role" id="role">Penetration Tester</p>
+            <p class="lead" style="margin-top:14px">
+              I help organizations understand their real-world risk through authorized
+              penetration testing and red team assessments, then work with their teams
+              to fix what matters most.
+            </p>
+            <div class="actions">
+              <a href="#services" class="btn">View services</a>
+            </div>
+          </div>
+          <div class="console" aria-hidden="true">
+            <div class="console-bar"><i></i><i></i><i></i></div>
+            <div class="console-body" id="console"></div>
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat"><b data-count="10">0</b><span>Years in security</span></div>
+          <div class="stat"><b data-count="200">0</b><span>Assessments delivered</span></div>
+          <div class="stat"><b data-count="40">0</b><span>Clients served</span></div>
+          <div class="stat"><b data-count="100" data-suffix="%">0</b><span>Authorized &amp; scoped</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="reveal">
+      <div class="wrap">
+        <div class="eyebrow">01 / ABOUT</div>
+        <h2>About me</h2>
+        <div class="about-grid">
+          <div>
+            <p>
+              I'm a penetration tester and red team consultant with a background in network
+              engineering and systems administration. I've worked with organizations in finance,
+              healthcare, technology, and the public sector to evaluate their defenses under
+              realistic conditions.
+            </p>
+            <p>
+              My goal on every engagement is simple: give your team a clear picture of where
+              you're exposed, how much it matters to the business, and exactly what to do about it.
+              Findings are only useful if they lead to fixes.
+            </p>
+            <p class="muted">
+              Outside of client work I mentor people new to the field, contribute to community
+              training events, and spend too much time on capture-the-flag challenges.
+            </p>
+          </div>
+          <div>
+            <h3>Focus areas</h3>
+            <ul class="skills">
+              <li>Network testing</li>
+              <li>Web applications</li>
+              <li>APIs</li>
+              <li>Cloud (AWS / Azure / GCP)</li>
+              <li>Active Directory</li>
+              <li>Wireless</li>
+              <li>Social engineering</li>
+              <li>Physical security</li>
+              <li>Threat modeling</li>
+              <li>Purple teaming</li>
+              <li>MITRE ATT&amp;CK</li>
+              <li>Secure code review</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="reveal">
+      <div class="wrap">
+        <div class="eyebrow">02 / SERVICES</div>
+        <h2>What I do</h2>
+        <div class="cards">
+          <div class="card">
+            <div class="ico">PT</div>
+            <h3>Penetration Testing</h3>
+            <p>Scoped testing of external and internal networks, web apps, and APIs to identify exploitable weaknesses and validate their impact.</p>
+          </div>
+          <div class="card">
+            <div class="ico">RT</div>
+            <h3>Red Team Assessments</h3>
+            <p>Goal-based exercises that measure how well your people, processes, and tools detect and respond to a realistic threat.</p>
+          </div>
+          <div class="card">
+            <div class="ico">PU</div>
+            <h3>Purple Team Workshops</h3>
+            <p>Collaborative sessions with your defenders to tune detections, close visibility gaps, and build response muscle memory.</p>
+          </div>
+          <div class="card">
+            <div class="ico">VM</div>
+            <h3>Vulnerability Management Reviews</h3>
+            <p>Assessment of your scanning, triage, and patching processes to make sure the right vulnerabilities get fixed quickly and consistently.</p>
+          </div>
+          <div class="card">
+            <div class="ico">TR</div>
+            <h3>Training</h3>
+            <p>Hands-on workshops for developers and IT teams on secure practices and how real attacks unfold.</p>
+          </div>
+          <div class="card">
+            <div class="ico">AD</div>
+            <h3>Security Advisory</h3>
+            <p>Remediation guidance, retesting, architecture review, and help building a sustainable security testing program.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="approach" class="reveal">
+      <div class="wrap">
+        <div class="eyebrow">03 / APPROACH</div>
+        <h2>How an engagement works</h2>
+        <div class="steps">
+          <div class="step"><div><h3>Scoping &amp; authorization</h3><p>We agree on objectives, targets, timing, and rules of engagement in writing before any testing begins.</p></div></div>
+          <div class="step"><div><h3>Assessment</h3><p>Methodical testing aligned to industry frameworks such as PTES, OWASP, and MITRE ATT&amp;CK, with regular check-ins.</p></div></div>
+          <div class="step"><div><h3>Reporting</h3><p>A clear executive summary plus detailed technical findings, risk ratings, and prioritized remediation steps.</p></div></div>
+          <div class="step"><div><h3>Debrief &amp; retest</h3><p>A walkthrough with your team, followed by verification testing once fixes are in place.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certs" class="reveal">
+      <div class="wrap">
+        <div class="eyebrow">04 / CERTIFICATIONS</div>
+        <h2>Credentials</h2>
+        <div class="certs">
+          <div class="cert"><b>OSCP+</b><span>OffSec Certified Professional Plus</span></div>
+          <div class="cert"><b>ECSA</b><span>EC-Council Certified Security Analyst</span></div>
+          <div class="cert"><b>CISSP</b><span>Certified Information Systems Security Professional</span></div>
+          <div class="cert"><b>CISM</b><span>Certified Information Security Manager</span></div>
+          <div class="cert"><b>CISA</b><span>Certified Information Systems Auditor</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="reveal">
+      <div class="wrap">
+        <div class="eyebrow">05 / CONTACT</div>
+        <h2>Let's talk</h2>
+        <div class="contact-grid">
+          <div>
+            <p class="muted">
+              Planning an assessment, need a second opinion on a report, or want to discuss a
+              red team exercise? Reach out on any of the channels below and I'll get back to you within two business days.
+            </p>
+            <ul class="contact-list">
+              <li><span>email</span><a href="mailto:support@sysrisk.com">support@sysrisk.com</a></li>
+              <li><span>linkedin</span><a href="https://www.linkedin.com/company/sysrisk" target="_blank" rel="noopener">linkedin.com/company/sysrisk</a></li>
+              <!-- <li><span>github</span><a href="https://github.com/" target="_blank" rel="noopener">github.com/yourname</a></li> -->
+              <li><span>signal</span>available on request</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>&copy; <span id="year"></span> papashell. All testing performed with written authorization.</span>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

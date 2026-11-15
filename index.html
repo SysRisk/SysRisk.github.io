@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>パパシェル | オフェンシブセキュリティ</title>
+  <meta name="description" content="攻撃者より先にセキュリティ上の弱点を発見し、修正を支援するペネトレーションテスター／レッドチーム・コンサルタント。">
+  <style>
+    :root {
+      --bg: #050709;
+      --bg-alt: #090c10;
+      --card: #0c1117;
+      --border: #17212b;
+      --text: #d6dee8;
+      --muted: #8494a7;
+      --accent: #2ee6a6;
+      --accent-2: #4da3ff;
+      --danger: #ff5c7a;
+      --mono: ui-monospace, "JetBrains Mono", "Fira Code", Consolas, monospace;
+      --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+    a { color: var(--accent-2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ::selection { background: var(--accent); color: var(--bg); }
+
+    #grid-bg { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
+
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(5, 7, 9, 0.88);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+    .brand { font-family: var(--mono); font-weight: 700; color: var(--text); }
+    .brand span { color: var(--accent); }
+    .nav ul { display: flex; gap: 22px; list-style: none; }
+    .nav ul a { color: var(--muted); font-size: 0.92rem; }
+    .nav ul a:hover, .nav ul a.active { color: var(--accent); text-decoration: none; }
+    .nav ul a.lang { border: 1px solid var(--border); border-radius: 6px; padding: 2px 10px; font-family: var(--mono); }
+    .nav ul a.lang:hover { border-color: var(--accent); }
+    .menu-btn {
+      display: none; background: none; border: 1px solid var(--border); color: var(--text);
+      padding: 6px 10px; border-radius: 6px; cursor: pointer; font-family: var(--mono);
+    }
+    @media (max-width: 760px) {
+      .menu-btn { display: block; }
+      .nav ul {
+        display: none; position: absolute; top: 64px; left: 0; right: 0; flex-direction: column;
+        background: var(--bg-alt); border-bottom: 1px solid var(--border); padding: 16px 20px; gap: 14px;
+      }
+      .nav ul.open { display: flex; }
+    }
+
+    section { padding: 96px 0 40px; }
+    .eyebrow { font-family: var(--mono); color: var(--accent); font-size: 0.85rem; letter-spacing: 0.08em; }
+    h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1.15; margin: 14px 0 18px; }
+    h2 { font-size: 1.8rem; margin: 8px 0 28px; }
+    h3 { font-size: 1.1rem; margin-bottom: 8px; }
+    .muted { color: var(--muted); }
+
+    .hero { min-height: calc(100vh - 64px); display: flex; align-items: center; padding-top: 40px; }
+    .hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: center; }
+    @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } }
+    .role { font-family: var(--mono); color: var(--accent); }
+    .role::after { content: "▍"; animation: blink 1s steps(1) infinite; margin-left: 2px; }
+    @keyframes blink { 50% { opacity: 0; } }
+    .lead { color: var(--muted); font-size: 1.1rem; max-width: 560px; }
+    .actions { display: flex; gap: 14px; margin-top: 30px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; padding: 12px 22px; border-radius: 8px; font-weight: 600;
+      border: 1px solid var(--accent); color: var(--accent); background: transparent; cursor: pointer;
+      font-size: 0.95rem; transition: background 0.2s, color 0.2s;
+    }
+    .btn:hover { background: var(--accent); color: var(--bg); text-decoration: none; }
+    .btn.solid { background: var(--accent); color: var(--bg); }
+    .btn.solid:hover { filter: brightness(1.1); }
+
+    .console {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      font-family: var(--mono); font-size: 0.85rem; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(46, 230, 166, 0.05);
+    }
+    .console-bar { display: flex; gap: 7px; padding: 12px 14px; border-bottom: 1px solid var(--border); }
+    .console-bar i { width: 11px; height: 11px; border-radius: 50%; background: var(--border); }
+    .console-bar i:nth-child(1) { background: #ff5f57; }
+    .console-bar i:nth-child(2) { background: #febc2e; }
+    .console-bar i:nth-child(3) { background: #28c840; }
+    .console-body { padding: 18px; min-height: 230px; white-space: pre-wrap; }
+    .console-body .p { color: var(--accent); }
+    .console-body .k { color: var(--accent-2); }
+
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 56px; }
+    @media (max-width: 700px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+    .stat { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
+    .stat b { display: block; font-size: 1.8rem; font-family: var(--mono); color: var(--accent); }
+    .stat span { color: var(--muted); font-size: 0.88rem; }
+
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+    .card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .card .ico {
+      width: 42px; height: 42px; border-radius: 10px; display: grid; place-items: center; margin-bottom: 14px;
+      background: rgba(46, 230, 166, 0.1); color: var(--accent); font-family: var(--mono); font-weight: 700;
+    }
+    .card p { color: var(--muted); font-size: 0.95rem; }
+
+    .about-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 36px; }
+    @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; } }
+    .about-grid p + p { margin-top: 14px; }
+    .skills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    .skills li {
+      list-style: none; font-family: var(--mono); font-size: 0.8rem; padding: 5px 11px; border-radius: 999px;
+      border: 1px solid var(--border); background: var(--bg-alt); color: var(--text);
+    }
+
+    .steps { counter-reset: step; display: grid; gap: 16px; }
+    .step {
+      counter-increment: step; display: grid; grid-template-columns: 56px 1fr; gap: 18px;
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px;
+    }
+    .step::before {
+      content: "0" counter(step); font-family: var(--mono); font-size: 1.4rem; color: var(--accent); font-weight: 700;
+    }
+    .step p { color: var(--muted); font-size: 0.95rem; }
+
+    .certs { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; }
+    .cert {
+      background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px; text-align: center;
+    }
+    .cert b { font-family: var(--mono); color: var(--accent); font-size: 1.15rem; display: block; }
+    .cert span { color: var(--muted); font-size: 0.82rem; }
+
+    .contact-grid { max-width: 640px; }
+    .contact-list { list-style: none; margin-top: 18px; display: grid; gap: 10px; font-family: var(--mono); font-size: 0.9rem; }
+    .contact-list span { color: var(--muted); display: inline-block; min-width: 90px; }
+
+    footer { border-top: 1px solid var(--border); margin-top: 60px; padding: 28px 0; color: var(--muted); font-size: 0.85rem; }
+    footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s, transform 0.6s; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="grid-bg" aria-hidden="true"></canvas>
+
+  <header>
+    <div class="wrap nav">
+      <a href="#top" class="brand">&lt;パパ<span>シェル</span>/&gt;</a>
+      <button class="menu-btn" id="menu-btn" aria-label="メニューを開閉">メニュー</button>
+      <ul id="nav-links">
+        <li><a href="#about">自己紹介</a></li>
+        <li><a href="#services">サービス</a></li>
+        <li><a href="#approach">進め方</a></li>
+        <li><a href="#certs">資格</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+        <li><a href="index_en.html" class="lang" lang="en" hreflang="en">English</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">// オフェンシブセキュリティ・コンサルタント</div>
+            <h1>攻撃者より先に、<br>弱点を見つけ出す。</h1>
+            <p class="role" id="role">ペネトレーションテスター</p>
+            <p class="lead" style="margin-top:14px">
+              正式な許可に基づくペネトレーションテストとレッドチーム評価を通じて、
+              組織が直面する現実のリスクを明らかにし、最も重要な課題の解決を
+              チームの皆様と共に進めます。
+            </p>
+            <div class="actions">
+              <a href="#services" class="btn">サービスを見る</a>
+            </div>
+          </div>
+          <div class="console" aria-hidden="true">
+            <div class="console-bar"><i></i><i></i><i></i></div>
+            <div class="console-body" id="console"></div>
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat"><b data-count="10">0</b><span>セキュリティ業界での経験年数</span></div>
+          <div class="stat"><b data-count="200">0</b><span>実施した評価</span></div>
+          <div class="stat"><b data-count="40">0</b><span>支援したクライアント</span></div>
+          <div class="stat"><b data-count="100" data-suffix="%">0</b><span>許可・範囲定義済み</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="reveal">
+      <div class="wrap">
+        <div class="eyebrow">01 / 自己紹介</div>
+        <h2>私について</h2>
+        <div class="about-grid">
+          <div>
+            <p>
+              ネットワークエンジニアおよびシステム管理者としての経歴を持つ、ペネトレーションテスター／
+              レッドチーム・コンサルタントです。金融、医療、テクノロジー、公共部門などの組織と協力し、
+              現実に即した条件のもとで防御態勢を評価してきました。
+            </p>
+            <p>
+              すべての案件での目標はシンプルです。どこに弱点があるのか、それがビジネスにどれほど
+              影響するのか、そして具体的に何をすべきかを、明確にお伝えすることです。
+              発見事項は、修正につながってこそ価値があります。
+            </p>
+            <p class="muted">
+              業務以外では、この分野に新しく入る人のメンタリングやコミュニティのトレーニングイベントへの
+              貢献を行い、CTF（キャプチャー・ザ・フラッグ）にもつい夢中になっています。
+            </p>
+          </div>
+          <div>
+            <h3>専門分野</h3>
+            <ul class="skills">
+              <li>ネットワーク診断</li>
+              <li>Webアプリケーション</li>
+              <li>APIs</li>
+              <li>クラウド（AWS / Azure / GCP）</li>
+              <li>Active Directory</li>
+              <li>ワイヤレス</li>
+              <li>ソーシャルエンジニアリング</li>
+              <li>物理セキュリティ</li>
+              <li>脅威モデリング</li>
+              <li>パープルチーム</li>
+              <li>MITRE ATT&amp;CK</li>
+              <li>セキュアコードレビュー</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="reveal">
+      <div class="wrap">
+        <div class="eyebrow">02 / サービス</div>
+        <h2>提供サービス</h2>
+        <div class="cards">
+          <div class="card">
+            <div class="ico">PT</div>
+            <h3>ペネトレーションテスト</h3>
+            <p>外部・内部ネットワーク、Webアプリケーション、APIを対象範囲に沿って診断し、悪用可能な弱点を特定してその影響を検証します。</p>
+          </div>
+          <div class="card">
+            <div class="ico">RT</div>
+            <h3>レッドチーム評価</h3>
+            <p>目標ベースの演習により、人・プロセス・ツールが現実的な脅威をどれだけ検知し、対応できるかを測定します。</p>
+          </div>
+          <div class="card">
+            <div class="ico">PU</div>
+            <h3>パープルチーム・ワークショップ</h3>
+            <p>防御チームと協働し、検知ルールの調整、可視性のギャップ解消、対応力の定着を図ります。</p>
+          </div>
+          <div class="card">
+            <div class="ico">VM</div>
+            <h3>脆弱性管理レビュー</h3>
+            <p>スキャン、トリアージ、パッチ適用のプロセスを評価し、重要な脆弱性が迅速かつ確実に修正される体制づくりを支援します。</p>
+          </div>
+          <div class="card">
+            <div class="ico">TR</div>
+            <h3>トレーニング</h3>
+            <p>開発者やITチーム向けに、セキュアな実践方法と実際の攻撃の流れを学ぶハンズオン形式のワークショップを提供します。</p>
+          </div>
+          <div class="card">
+            <div class="ico">AD</div>
+            <h3>セキュリティアドバイザリー</h3>
+            <p>修正のガイダンス、再テスト、アーキテクチャレビュー、そして持続可能なセキュリティテスト体制の構築を支援します。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="approach" class="reveal">
+      <div class="wrap">
+        <div class="eyebrow">03 / 進め方</div>
+        <h2>案件の流れ</h2>
+        <div class="steps">
+          <div class="step"><div><h3>スコープ定義と許可</h3><p>テスト開始前に、目的・対象・期間・実施ルールについて書面で合意します。</p></div></div>
+          <div class="step"><div><h3>評価</h3><p>PTES、OWASP、MITRE ATT&amp;CKなどの業界フレームワークに沿って体系的にテストを行い、定期的に進捗を共有します。</p></div></div>
+          <div class="step"><div><h3>報告</h3><p>わかりやすいエグゼクティブサマリーに加え、詳細な技術的所見、リスク評価、優先順位付きの修正手順をご提供します。</p></div></div>
+          <div class="step"><div><h3>報告会と再テスト</h3><p>チームの皆様と結果を確認し、修正完了後に検証テストを実施します。</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certs" class="reveal">
+      <div class="wrap">
+        <div class="eyebrow">04 / 資格</div>
+        <h2>保有資格</h2>
+        <div class="certs">
+          <div class="cert"><b>OSCP+</b><span>OffSec Certified Professional Plus</span></div>
+          <div class="cert"><b>ECSA</b><span>EC-Council Certified Security Analyst</span></div>
+          <div class="cert"><b>CISSP</b><span>Certified Information Systems Security Professional</span></div>
+          <div class="cert"><b>CISM</b><span>Certified Information Security Manager</span></div>
+          <div class="cert"><b>CISA</b><span>Certified Information Systems Auditor</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="reveal">
+      <div class="wrap">
+        <div class="eyebrow">05 / お問い合わせ</div>
+        <h2>お気軽にご相談ください</h2>
+        <div class="contact-grid">
+          <div>
+            <p class="muted">
+              評価のご計画、報告書のセカンドオピニオン、レッドチーム演習のご相談など、
+              下記のいずれかの方法でご連絡ください。2営業日以内にご返信いたします。
+            </p>
+            <ul class="contact-list">
+              <li><span>email</span><a href="mailto:support@sysrisk.com">support@sysrisk.com</a></li>
+              <li><span>linkedin</span><a href="https://www.linkedin.com/company/sysrisk/" target="_blank" rel="noopener">linkedin.com/company/sysrisk</a></li>
+              <!-- <li><span>github</span><a href="https://github.com/" target="_blank" rel="noopener">github.com/yourname</a></li> -->
+              <li><span>signal</span>ご要望に応じてお知らせします</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>&copy; <span id="year"></span> パパシェル ｜ すべてのテストは書面による許可のもとで実施しています。</span>
+      <a href="#top">トップへ戻る ↑</a>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
